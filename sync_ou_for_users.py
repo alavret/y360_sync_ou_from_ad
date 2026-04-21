@@ -1106,8 +1106,10 @@ if __name__ == "__main__":
 
     #hierarchy, all_dn = build_group_hierarchy(settings)
     if settings.load_ad_data_from_file:
+        logger.info(f"Загрузка данных из файла {settings.ad_data_file}")
         hierarchy = load_heirarchy_from_file(settings.ad_data_file)
     else:
+        logger.info("Загрузка данных из Active Directory")
         hierarchy = connect_users_to_ous(settings)
 
     if not hierarchy:
